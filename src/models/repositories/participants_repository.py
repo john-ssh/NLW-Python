@@ -1,4 +1,4 @@
-from sqlite import  Connection
+from sqlite3 import  Connection
 from typing import Dict
 
 class ParticipantsRepository:
@@ -16,13 +16,13 @@ class ParticipantsRepository:
             ''', (
                 participant_infos["id"],
                 participant_infos["trip_id"],
-                participant_infos["emails_to_invite_id"]
+                participant_infos["emails_to_invite_id"],
                 participant_infos["name"]
             )
         )
         self.conn.commit()
 
-    def find_participants_from_trip(self, trip_id: str) -> List[Tuple]:
+    def find_participants_from_trip(self, trip_id: str) -> list[tuple]:
         cursor = self.conn.cursor()
         cursor.execute(
             '''

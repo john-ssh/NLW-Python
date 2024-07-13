@@ -28,4 +28,4 @@ class ActivitiesRepository:
             '''SELECT * FROM activities WHERE trip_id = ?''', (trip_id,)
         )
         activities = cursor.fetchall()
-        return emails
+        return activities
